@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 import csv
 
 app = Flask(__name__)
@@ -19,15 +19,5 @@ def index():
             if linea[0] != 'region':
                 d[linea[0]] = {'ingresos':float(linea[11]), 'beneficios':float(linea[13])}
 
-    return d
 
-    '''
-    <abrir fichero>
-    <mientras haya registros>
-        registro = leerFichero
-        registro. separar.por comas
-        procesar ventas totales y beneficios totales
-
-    Montar respuesta
-    devolver respuesta.
-    '''
+    return render_template('region.html')
