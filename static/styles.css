@@ -25,7 +25,7 @@ th {
     color: white;
 }
 
-.region {
+.region, .pais {
     font-weight: bold;
     color: #CE6A85;
     text-align: center;

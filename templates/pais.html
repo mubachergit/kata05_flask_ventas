@@ -1,0 +1,33 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GLOBAL S.L</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <style>
+    </style>
+</head>
+<body>
+    <header>
+        GLOBAL S.L.
+    </header>
+    <h1>Ventas por pais</h1>
+    <table>
+        <tr>
+            <th>Pais</th>
+            <th>Ventas</th>
+            <th>Beneficios</th>
+        </tr>
+        {% for pais, data in ventas.items() %}
+        <tr>
+            <td class="pais">{{ pais }}</td>
+            <td class="numero">{{ data.ingresos }}</td>
+            <td class="numero">{{ data.beneficios }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <footer>
+        &copy; 2020 - Todos los derechos reservados
+    </footer>
+</body>
+</html>
