@@ -1,16 +1,8 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GLOBAL S.L</title>
-    <link rel="stylesheet" href="/static/styles.css">
-    <style>
-    </style>
-</head>
-<body>
-    <header>
-        GLOBAL S.L.
-    </header>
+{% extends 'base.html' %}
+
+{% block titulo %} Ventas por region {% endblock %}
+
+{% block contenido %}
     <h1>Ventas por region</h1>
     <table>
         <tr>
@@ -21,13 +13,9 @@
         {% for region, data in ventas.items() %}
         <tr>
             <td class="region">{{ region }}</td>
-            <td class="numero">{{ data.ingresos }}</td>
+            <td class="numero">{{ data.ingresos | round(2, 'floor') }} €</td>
             <td class="numero">{{ data.beneficios }}</td>
         </tr>
         {% endfor %}
     </table>
-    <footer>
-        &copy; 2020 - Todos los derechos reservados
-    </footer>
-</body>
-</html>
+{% endblock %}

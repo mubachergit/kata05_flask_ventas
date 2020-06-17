@@ -1,17 +1,9 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GLOBAL S.L</title>
-    <link rel="stylesheet" href="/static/styles.css">
-    <style>
-    </style>
-</head>
-<body>
-    <header>
-        GLOBAL S.L.
-    </header>
-    <h1>Ventas por pais</h1>
+{% extends 'base.html' %}
+
+{% block titulo %} Ventas por pais {% endblock %}
+
+{% block contenido %}
+    <h1>Ventas en {{region_nm}}</h1>
     <table>
         <tr>
             <th>Pais</th>
@@ -26,8 +18,4 @@
         </tr>
         {% endfor %}
     </table>
-    <footer>
-        &copy; 2020 - Todos los derechos reservados
-    </footer>
-</body>
-</html>
+{% endblock %}
