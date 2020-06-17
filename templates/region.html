@@ -12,10 +12,10 @@
         </tr>
         {% for region, data in ventas.items() %}
         <tr>
-            <td class="region">{{ region }}</td>
+            <td class="region"><a href="/paises?region={{ region }}">{{ region }}</a></td>
             <td class="numero">{{ data.ingresos | round(2, 'floor') }} €</td>
-            <td class="numero">{{ data.beneficios }}</td>
+            <td class="numero">{{ data.beneficios | round(2, 'floor') }} €</td>
         </tr>
         {% endfor %}
-    </table>
+    </table>    
 {% endblock %}

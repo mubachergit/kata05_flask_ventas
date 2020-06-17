@@ -3,7 +3,7 @@
 {% block titulo %} Ventas por pais {% endblock %}
 
 {% block contenido %}
-    <h1>Ventas en {{region_nm}}</h1>
+    <h1>Ventas <b>en</b>  {{region_nm}}, desglosados <span>por</span> país <a class='boton' href="/">Atrás</a></h1>
     <table>
         <tr>
             <th>Pais</th>
@@ -17,5 +17,6 @@
             <td class="numero">{{ data.beneficios }}</td>
         </tr>
         {% endfor %}
-    </table>
+    </table>   
+<a href="/">Atrás</a>
 {% endblock %}
