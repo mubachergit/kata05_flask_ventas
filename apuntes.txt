@@ -1,0 +1,4 @@
+CRUD (create, read, update, delete)
+
+Aplicacion de una entidad en la que pueda crear,leer, modificar, y borrar elementos.
+

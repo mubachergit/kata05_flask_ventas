@@ -1,12 +1,14 @@
 from flask import Flask, render_template, request
-import csv
+import csv, sqlite3
 
 app = Flask(__name__)
+BASE_DATOS = './data/ventas.db'
 
 @app.route("/")
 def index():
     fVentas = open('./sales.csv', 'r')
     csvreader = csv.reader(fVentas, delimiter=',')
+    print('hola')
 
     d = {}   
     for linea in csvreader:
@@ -36,3 +38,18 @@ def paises():
                 d[linea[1]] = {'ingresos':float(linea[11]), 'beneficios':float(linea[13])}
 
     return render_template('pais.html',ventas=d, region_nm=request.values['region'])
+
+@app.route("/productos")
+def productos():
+    conn = sqlite3.connect(BASE_DATOS)
+    cur = conn.cursor()
+    
+    query = "SELECT id, tipo_producto, precio_unitario, coste_unitario FROM productos;"
+    productos = cur.execute(query).fetchall()
+
+    conn.close()
+    return render_template ('productos.html', productos=productos)
+
+@app.route("/addproducto")
+def addProduct():
+    return render_template ('newproduct.html')
