@@ -1,5 +1,6 @@
 import csv, sqlite3
 from the_app import app
+from the_app.forms import ProductForm
 
 from flask import Flask, render_template, request, redirect, url_for
 
@@ -54,13 +55,16 @@ def productos():
 
 @app.route("/addproducto", methods=['GET', 'POST'])
 def addProduct():
+    form = ProductForm()
+
     if request.method == "GET":
-        return render_template ('newproduct.html')
+        return render_template ('newproduct.html', form=form)
     else:
         conn = sqlite3.connect(BASE_DATOS)
         cur = conn.cursor()
         query = "INSERT INTO productos (tipo_producto, precio_unitario, coste_unitario) VALUES (?,?,?);"
         datos = (request.values.get('tipo_producto'), request.values.get('precio_unitario'), request.values.get('coste_unitario'))
+
 
         cur.execute(query, datos)
 
