@@ -7,8 +7,25 @@
     <form class="u-full-width" action="/addproducto" method="post">
         {{ form.hidden_tag() }}
         {{ form.tipo_producto(class="u-full-width", placeholder="Prodcuto") }}
+        {% if form.tipo_producto.errors %}
+            {% for error in form.tipo_producto.errors %}
+                <p class="error-msg">{{ error }}</p>
+            {% endfor %}
+        {% endif %}
+
         {{ form.precio_unitario(class="u-full-width", placeholder="Precio Unitario") }}
+        {% if form.precio_unitario.errors %}
+            {% for error in form.precio_unitario.errors %}
+                <p class="error-msg">{{ error }}</p>
+            {% endfor %}
+        {% endif %}
+
         {{ form.coste_unitario(class="u-full-width", placeholder="Coste Unitario") }}
+        {% if form.coste_unitario.errors %}
+            {% for error in form.coste_unitario.errors %}
+                <p class="error-msg">{{ error }}</p>
+            {% endfor %}
+        {% endif %}
         {{ form.submit(class="button-primary") }}
 
 
